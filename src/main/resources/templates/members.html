@@ -10,7 +10,28 @@
 <div class="container mt-5">
     <h1 class="mb-4">Welcome to kitchensink</h1>
 
-
+    <h3>Register a New Member</h3>
+    <form action="#" th:action="@{/register}" th:object="${member}" method="post">
+        <div >
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}"/>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" th:field="*{email}"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
+        </div>
+        <div>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" th:field="*{phoneNumber}"  />
+            <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="error"></span>
+        </div>
+        <div> </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
 
     <!-- Data Table for Displaying Members -->
     <table class="table table-bordered">

@@ -26,6 +26,7 @@ public class MemberController {
     @GetMapping("members")
     public String listMembers(Model model) {
         List<Member> members = memberRegistrationController.getMembers();
+        model.addAttribute("member", new Member());
         model.addAttribute("members", members);
         return "members";
     }
@@ -43,7 +44,17 @@ public class MemberController {
 
     }
 
+    @PostMapping("/register")
+    public String register(@Valid @ModelAttribute Member member, BindingResult result,Model model){
+        List<Member> members = memberRegistrationController.getMembers();
+        if (result.hasErrors()) {
+            model.addAttribute("members", members);
+            return "members";
+        }
+        memberRegistrationController.saveMember(member);
 
-
+        model.addAttribute("members", members);
+        return "redirect:/members";
+    }
 
 }

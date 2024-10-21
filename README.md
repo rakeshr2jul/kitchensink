@@ -9,7 +9,7 @@ git clone https://github.com/rakeshr2jul/kitchensink.git
  mvn clean package 
 
 #### run the following command 
-docker-compose up -build
+docker-compose up --build
 
 ### copy paste url in browser http://localhost:8080/members
 
@@ -17,9 +17,4 @@ docker-compose up -build
 
 http://localhost:8080/members
 
-payload : {
-
-    "name":"jack",
-    "email":"test@test12.com",
-    "phoneNumber":"2243108344"
-}
+It will render the member page
