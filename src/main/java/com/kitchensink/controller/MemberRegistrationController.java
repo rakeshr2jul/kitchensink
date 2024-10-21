@@ -44,7 +44,7 @@ public class MemberRegistrationController {
            Member savedUser = memberRegistrationService.register(member);
            return ResponseEntity.ok(savedUser);
        }catch (MemberAlreadyExistException mae){
-           return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(KitchensinkConstant.MEM_ALREADY_EXIST);
+           return  ResponseEntity.status(HttpStatus.CONFLICT).body(KitchensinkConstant.MEM_ALREADY_EXIST);
        }
 
     }
