@@ -13,3 +13,13 @@ docker-compose up -build
 
 ### copy paste url in browser http://localhost:8080/members
 
+### create member resource using postman 
+
+http://localhost:8080/members
+
+payload : {
+
+    "name":"jack",
+    "email":"test@test12.com",
+    "phoneNumber":"2243108344"
+}

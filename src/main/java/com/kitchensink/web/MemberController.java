@@ -30,29 +30,20 @@ public class MemberController {
         return "members";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/members/{id}")
     @ResponseBody
     public ResponseEntity<Member> getMemberById(@PathVariable Long id) {
         return memberRegistrationController.getMemberById(id);
-
     }
 
     @GetMapping("/list")
     @ResponseBody
-    public List<Member> getMemberById() {
+    public List<Member> getMemberList() {
         return memberRegistrationController.getMembers();
 
     }
 
-    @GetMapping("/register")
-    public String showRegistrationForm(Model model) {
-        model.addAttribute("member", new Member());
-        return "members";
-    }
 
-    @PostMapping("/register")
-    public String registerMember(@Valid @ModelAttribute Member member) {
-        memberRegistrationController.saveMember(member);
-        return "redirect:/members";
-    }
+
+
 }
