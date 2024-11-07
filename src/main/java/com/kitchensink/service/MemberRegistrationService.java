@@ -10,10 +10,9 @@ import java.util.Optional;
 public interface MemberRegistrationService {
 
     public Member register(Member member);
-    public Page<Member> getAllMembers(Pageable pageable);
     public List<Member> getMembers();
 
     public Optional<Member> getMemberById(Long id);
 
-    public Optional<Member> checkEmail(String email);
+    public Member checkEmail(String email);
 }
